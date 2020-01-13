@@ -1,0 +1,68 @@
+﻿@using Eventures.App.Models
+
+@model EventCreateBindingModel
+
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<h1 class="text-center text-panda">Create Event</h1>
+<hr class="bg-panda w-50" style="height: 2px" />
+<form asp-controller="Events" asp-action="Create" method="post" class="w-50 mx-auto">
+    <div asp-validation-summary="All" class="d-flex justify-content-center text-danger"></div>
+    <div class="d-flex justify-content-between">
+        <div class="form-group w-45">
+            <div class="d-flex justify-content-center">
+                <label asp-for="Name" class="font-weight-bold">Name</label>
+            </div>
+            <input type="text" class="form-control" id="name" asp-for="Name" placeholder="Name..." />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group w-45">
+            <div class="d-flex justify-content-center">
+                <label asp-for="Place" class="font-weight-bold">Place</label>
+            </div>
+            <input type="text" class="form-control" id="place" asp-for="Place" placeholder="Place..." />
+            <span asp-validation-for="Place" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div class="form-group w-45">
+            <div class="d-flex justify-content-center">
+                <label asp-for="Start" class="font-weight-bold">Start</label>
+            </div>
+            <input type="datetime-local" class="form-control" id="start" asp-for="Start" placeholder="Start..." />
+            <span asp-validation-for="Start" class="text-danger"></span>
+        </div>
+        <div class="form-group w-45">
+            <div class="d-flex justify-content-center">
+                <label asp-for="End" class="font-weight-bold">End</label>
+            </div>
+            <input type="datetime-local" class="form-control" id="end" asp-for="End" placeholder="End..." />
+            <span asp-validation-for="End" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div class="form-group w-45">
+            <div class="d-flex justify-content-center">
+                <label asp-for="TotalTickets" class="font-weight-bold">Total Tickets</label>
+            </div>
+            <input type="number" class="form-control" id="totalTickets" asp-for="TotalTickets" placeholder="Total Tickets..." />
+            <span asp-validation-for="TotalTickets" class="text-danger"></span>
+        </div>
+        <div class="form-group w-45">
+            <div class="d-flex justify-content-center">
+                <label asp-for="PricePerTicket" class="font-weight-bold">Price Per Ticket</label>
+            </div>
+            <input type="text" class="form-control" id="pricePerTicket" asp-for="PricePerTicket" placeholder="Price Per Ticket..." />
+            <span asp-validation-for="PricePerTicket" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <button type="submit" class="btn bg-panda text-white" style="background: black">Create</button>
+    </div>
+</form>
+
+@section  Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

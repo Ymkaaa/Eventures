@@ -1,0 +1,40 @@
+﻿<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-panda">
+        <a class="navbar-brand" href="/">Eventures</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                @if (this.User.IsInRole("Admin"))
+                {
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Events/All">Events</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/Events/Create">Create</a>
+                        </li>
+                    </ul>
+                }
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                @if (!this.User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Identity/Account/Login">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Identity/Account/Register">Register</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Identity/Account/Logout">Logout</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+</header>

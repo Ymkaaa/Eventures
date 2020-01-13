@@ -1,0 +1,33 @@
+﻿@using Eventures.App.Models
+
+@model IEnumerable<EventAllViewModel>
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1 class="text-center">Events</h1>
+<hr class="bg-panda" style="height: 2px" />
+<div class="d-flex justify-content-between">
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr class="row">
+                <th scope="col" class="col-lg-3 d-flex justify-content-center">Name</th>
+                <th scope="col" class="col-lg-3 d-flex justify-content-center">Start</th>
+                <th scope="col" class="col-lg-3 d-flex justify-content-center">End</th>
+                <th scope="col" class="col-lg-3 d-flex justify-content-center">Place</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var _event in Model)
+            {
+                <tr class="row">
+                    <th scope="row" class="col-lg-3 d-flex justify-content-center">@_event.Name</th>
+                    <td class="col-lg-3 d-flex justify-content-center">@_event.Start</td>
+                    <td class="col-lg-3 d-flex justify-content-center">@_event.End</td>
+                    <td class="col-lg-3 d-flex justify-content-center">@_event.Place</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
